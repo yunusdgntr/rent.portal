@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rent-portal-api
+spec:
+  selector:
+    matchLabels:
+      app: rent-portal-api
+  template:
+    metadata:
+      labels:
+        app: rent-portal-api
+    spec:
+      containers:
+      - name: rent-portal-api
+        image: rentportal:v2
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
